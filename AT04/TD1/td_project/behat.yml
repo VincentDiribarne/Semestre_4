@@ -1,0 +1,14 @@
+# behat.yml
+default:
+    extensions:
+        Behat\MinkExtension:
+            default_session: goutte
+            javascript_session: selenium2
+            browser_name: 'firefox'
+            base_url: http://en.wikipedia.org
+            goutte: ~
+            selenium2:
+                wd_host: localhost:4444/wd/hub
+                capabilities:
+                      proxy: 
+                            proxyType: "autodetect"
