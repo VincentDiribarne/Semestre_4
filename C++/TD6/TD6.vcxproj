@@ -18,11 +18,22 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TD6main1.cpp" />
+    <ClCompile Include="TD6main2.cpp" />
+    <ClCompile Include="TD6main3.cpp" />
+    <ClCompile Include="Vecteur3D.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MatriceT.h" />
+    <ClInclude Include="Vecteur3D.h" />
+    <ClInclude Include="Vecteur3DT.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{af3d05d5-3765-44ca-b275-6493bc3fe2de}</ProjectGuid>
-    <RootNamespace>Test</RootNamespace>
+    <ProjectGuid>{b27aa724-c527-48f8-b1c9-6663d32d3da6}</ProjectGuid>
+    <RootNamespace>TD6</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -138,13 +149,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Fraction.cpp" />
-    <ClCompile Include="Test.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Fraction.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

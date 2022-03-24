@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{af3d05d5-3765-44ca-b275-6493bc3fe2de}</ProjectGuid>
-    <RootNamespace>Test</RootNamespace>
+    <ProjectGuid>{b28ab717-e97d-4090-a782-63dee9dc2e28}</ProjectGuid>
+    <RootNamespace>TD4</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,11 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Fraction.cpp" />
-    <ClCompile Include="Test.cpp" />
+    <ClCompile Include="Matrice.cpp" />
+    <ClCompile Include="MatriceAnto.cpp" />
+    <ClCompile Include="Td4main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Fraction.h" />
+    <ClInclude Include="Matrice.h" />
+    <ClInclude Include="MatriceAnto.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
