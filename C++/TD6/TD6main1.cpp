@@ -1,17 +1,16 @@
 
 #include <iostream>
-//#include "Vecteur3D.h"
-//#include "Vecteur3DT.h"
-//#include "MatriceT.h"
+#include "Vecteur3D.h"
+#include "Vecteur3DT.h"
+#include "MatriceT.h"
 
+int main()
+{
 
-
-
-int main(){
 	std::cout << "***********Ensemble d'instructions A****************" << std::endl;
-	int tab1[3] = {1,4,5};
+	int tab1[3] = { 1, 4, 5 };
 	Vecteur3D v1(tab1);
-	Vecteur3D v2(7,4,1);
+	Vecteur3D v2(7, 4, 1);
 	Vecteur3D v3(v2);
 	std::cout << "v1: (" << v1.x() << "," << v1.y() << "," << v1.z() << ")" << std::endl;
 	std::cout << "v2: " << v2 << std::endl;
@@ -31,7 +30,6 @@ int main(){
 	v1 = v2 * v3;
 	std::cout << "v1: " << v1 << std::endl;
 
-	/*
 	std::cout << "***********Ensemble d'instructions B****************" << std::endl;
 	int tab2[3] = { 1, -4, 5 };
 	Vecteur3DT<int> vt1(tab2);
@@ -54,9 +52,8 @@ int main(){
 	std::cout << "vt1: " << vt1 << std::endl;
 	vt1 = vt2 * vt3;
 	std::cout << "vt1: " << vt1 << std::endl;
-	*/
 
-	/*
+
 	std::cout << "***********Ensemble d'instructions C****************" << std::endl;
 	float tab3[3] = { -1.44f, 4.28f, -5.67f };
 	Vecteur3DT<float> vt4(tab3);
@@ -79,16 +76,14 @@ int main(){
 	std::cout << "vt4: " << vt4 << std::endl;
 	vt4 = vt5 * vt6;
 	std::cout << "vt4: " << vt4 << std::endl;
-	*/
 
-	/*
 	std::cout << "***********Ensemble d'instructions D****************" << std::endl;
 	int tab4[20] = { 1, 4, 7, 8, 5, 2, 9, 6, 3, 1, 4, 7, 8, 5, 2, 9, 6, 3, 1, 4 };
 	MatriceT<int> mt1(4, 5, tab4);
 	int tab5[15] = { 5, 7, 9, 6, 4, 1, 8, 7, 6, 4, 7, 8, 4, 5, 6 };
 	MatriceT<int> mt2(5, 3, tab5);
 	MatriceT<int> mt3(mt2);
-	std::cout << "mt1 partielle :" << mt1[0][0] << " " <<  mt1[0][1] <<" " << mt1[0][2] << std::endl;
+	std::cout << "mt1 partielle :" << mt1[0][0] << " " << mt1[0][1] << " " << mt1[0][2] << std::endl;
 	std::cout << "mt2 :" << mt2 << std::endl;
 	std::cout << "mt3 :" << mt3 << std::endl;
 	std::cout << "mt2 egal mt3 :" << (mt2 == mt3) << std::endl;
@@ -102,11 +97,9 @@ int main(){
 	std::cout << "mt4 :" << mt4 << std::endl;
 	mt4 = mt2 * 2;
 	std::cout << "mt4 :" << mt4 << std::endl;
-	mt4 = mt1* mt2;
+	mt4 = mt1 * mt2;
 	std::cout << "mt4 :" << mt4 << std::endl;
-	*/
 
-	/*
 	std::cout << "***********Ensemble d'instructions E****************" << std::endl;
 	double tab6[20] = { 1.4, -4.6, -7.7, -8.85, 5.41, -2.87, 9.82, 6.14, 3.47, -1.13, 4.45, 7.78, 8.12, -5.14, 2.45, 9.58, 6.45, 3.19, 1.43, -4.7 };
 	MatriceT<double> mt5(4, 5, tab6);
@@ -129,9 +122,7 @@ int main(){
 	std::cout << "mt8 :" << mt8 << std::endl;
 	mt8 = mt5* mt6;
 	std::cout << "mt8 :" << mt8 << std::endl;
-	*/
 
-	/*
 	std::cout << "***********Ensemble d'instructions F****************" << std::endl;
 	Vecteur3DT<float> tab8[6] = { Vecteur3DT<float>(1.2f, -2.4f, 3.84f), Vecteur3DT<float>(4.84f, -8.75f, -3.85f), Vecteur3DT<float>(-1.89f, 2.75f, -3.78f),
 	Vecteur3DT<float>(9.55f, 2.47f, 3.1f), Vecteur3DT<float>(-7.85f, -2.75f, -3.74f), Vecteur3DT<float>(7.91f, 2.12f, -6.12f)};
@@ -159,7 +150,6 @@ int main(){
 	std::cout << "mt12 :" << mt12 << std::endl;
 	mt12 = mt9* mt10;
 	std::cout << "mt12 :" << mt12 << std::endl;
-	*/
 
 	return 0;
 }
