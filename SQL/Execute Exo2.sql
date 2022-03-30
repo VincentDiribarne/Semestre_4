@@ -1,0 +1,10 @@
+--EXECUTE AffichageClient
+--EXECUTE NbCommandes
+--EXECUTE maxAchat
+--EXECUTE ouiNon
+--EXECUTE achatApresDate '01/02/2012'
+--EXECUTE betweenDate 2013, 2012
+--EXECUTE plusMontant 5000
+--DECLARE @cpt INT
+--EXECUTE nbLigneCde 1, @cpt OUTPUT
+--PRINT @cpt
