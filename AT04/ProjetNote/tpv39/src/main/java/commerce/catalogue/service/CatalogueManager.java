@@ -97,7 +97,7 @@ public class CatalogueManager {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession() ;
 		try {
 			session.beginTransaction();
-			Query query = session.createQuery("from commerce.catalogue.domaine.modele.Article") ;
+			Query query = session.createQuery("from commerce.catalogue.domaine.modele.Article");
 			articles = query.list() ;
 			session.getTransaction().commit();
 		}

@@ -21,7 +21,7 @@
 %>
 <header id="header" class="col-full">
     <div id="logo">
-        <h1 class="site-title">Site web marchand</h1>
+        <h1 class="site-title">Amazon du pauvre</h1>
     </div>
     <nav id="site-navigation" class="main-navigation" role="navigation">
         <button class="menu-toggle" aria-controls="site-navigation" aria-expanded="false">
@@ -36,42 +36,26 @@
                 <li class="page_item page-item-2">
                     <a href="<%=response.encodeURL("./controlePanier.jsp")%>">Panier</a>
                 </li>
-
-                <li>
-                    <form action="<%=response.encodeURL("./afficheRecherche.jsp")%>" method="post">
-                        <label>
-                            <input type="text" name="recherche" id="recherche" placeholder="Entrez votre recherche" onkeyup="">
-                        </label>
-                    </form>
-                </li>
             </ul>
         </div>
     </nav>
 </header>
 <script>
-    function updateProposal() {
-        let xhr;
-        let saisie;
-
-        xhr = new XMLHttpRequest();
-
-        xhr.onreadystatechange = function () {
-            if ((xhr.readyState === 4) && (xhr.status === 200)) {
-                document.getElementById("datalist").innerHTML = xhr.responseText;
-            }
-        };
-
-        saisie = document.getElementById("saisie").value;
-        xhr.open("GET", "verif.php?code=" + saisie, true);
-        xhr.send(null);
+    <%
+    if(request.getParameter("affichePopup") != null) {
+        %>
+    language = "javascript";
+    alert("Un article a été ajouté à votre panier");
+    <%
     }
+    %>
 </script>
 <div id="content" class="site-content" tabindex="-1">
     <div class="col-full">
         <div id="primary" class="content-area">
             <main id="main" class="site-main" role="main">
                 <header class="woocommerce-products-header">
-                    <h1 class="woocommerce-products-header__title page-title">Résultats de la recherche</h1>
+                    <h1 class="woocommerce-products-header__title page-title">Les différents articles : </h1>
                 </header>
                 <ul class="products columns-3">
                     <%
@@ -81,36 +65,47 @@
                             article = (Article) listeDesArticles.next();
                             if ((index % 3) == 0) {
                     %>
-                    <li class="product type-product first">
+                    <li
+
+                            class
+
+                                    ="product type-product first">
                             <%
-											} else {
-%>
-                    <li class="product type-product">
+                        } else {
+                        %>
+                    <li
+
+                            class
+
+                                    ="product type-product">
                         <%
                             }
                             index++;
                         %>
                         <a
                                 href="<%=response.encodeURL("./controlePanier.jsp?refArticle="
-											+ article.getRefArticle()
-									+ "&amp;commande=ajouterLigne")%>"> <img
+                            + article.getRefArticle()
+                            + "&amp;commande=ajouterLigne")%>"> <img
                                 src="<% if (article.getImage().startsWith("http"))
-													out.print(article.getImage()) ;
-												else
-													out.print("./images/"+article.getImage()) ; %>"
-                                class="attachment-shop_catalog wp-post-image" alt="poster_2_up"
+                        out.print(article.getImage());
+                    else
+                        out.print("./images/" + article.getImage()); %>"
+
+                                class
+
+                                        ="attachment-shop_catalog wp-post-image"
+                                alt="poster_2_up"
                                 height="300"/>
                             <h3><%=article.getTitre()%>
                             </h3> <span class="price"><ins>
-												<span class="amount"><%=article.getPrix()%> €</span>
-											</ins></span>
+    <span class="amount"><%=article.getPrix()%> €</span>
+    </ins></span>
 
-                        </a> <a
-                            href="<%=response.encodeURL("./controlePanier.jsp?refArticle="
-											+ article.getRefArticle()
-									+ "&amp;commande=ajouterLigne")%>"
-                            class="button add_to_cart_button product_type_simple">Mettre
-                        dans le panier</a>
+                        </a>
+                        <a href="<%=response.encodeURL("./controlePanier.jsp?refArticle="
+                            + article.getRefArticle()
+                            + "&amp;commande=ajouterLigne")%>"
+                           class="button add_to_cart_button product_type_simple">Ajouter</a>
                         <%
                             if (article instanceof Musique) {
                                 musique = (Musique) article;
@@ -157,7 +152,9 @@
 </div>
 <!-- #content -->
 <script type="text/javascript">
-    window.addEventListener("load", myFunction, false);
+    window.addEventListener("load", myFunction, false
+    )
+    ;
 
     function myFunction(event) {
         <%

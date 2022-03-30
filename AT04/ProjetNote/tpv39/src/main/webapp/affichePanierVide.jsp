@@ -2,7 +2,7 @@
 <%@ include file="enTetePage.html"%>
 			<header id="header" class="col-full">
 				<div id="logo">
-					<h1 class="site-title">Site web marchand</h1>
+					<h1 class="site-title">Amazon du pauvre</h1>
 				</div>
 				<nav id="site-navigation" class="main-navigation" role="navigation">
 					<button class="menu-toggle" aria-controls="site-navigation" aria-expanded="false">
@@ -28,7 +28,7 @@
 					</header><!-- .entry-header -->
 					<div class="entry-content">
 						<div class="woocommerce">
-							<p class="cart-empty">Votre panier est vide.</p>
+							<p class="cart-empty">Votre panier est vide.<br>Vous pouvez faire un achat pour le remplir</p>
 						</div>
 					</div>
 				</div><!-- .col-full -->
