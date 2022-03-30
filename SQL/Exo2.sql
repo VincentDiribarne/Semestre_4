@@ -1,0 +1,80 @@
+--CREATE OR ALTER PROC AffichageClient 
+--AS
+--	SELECT Nom, Prenom, [Date], Reference FROM Client INNER JOIN EnteteCommande ON Client.Identifiant = EnteteCommande.IdentifiantClient;
+--GO
+
+--CREATE OR ALTER PROC NbCommandes
+--AS
+--SELECT Client.Nom, Client.Prenom, COUNT(EnteteCommande.Identifiant) as 'Nombre commandes' FROM Client
+--LEFT JOIN EnteteCommande ON Client.Identifiant = EnteteCommande.IdentifiantClient
+--GROUP BY Client.Nom, Client.Prenom, Client.Identifiant
+--ORDER BY COUNT(EnteteCommande.Identifiant) DESC;
+--GO
+
+--CREATE OR ALTER PROC maxAchat
+--AS
+-- SELECT Client.Nom, client.Prenom
+--	FROM EnteteCommande INNER JOIN Client ON Client.Identifiant = EnteteCommande.IdentifiantClient
+--	GROUP BY Client.Nom, Client.Prenom, Client.Identifiant
+--HAVING COUNT(EnteteCommande.Identifiant) = (
+--	SELECT MAX(t0.NombreCommandes) FROM (
+--		SELECT EnteteCommande.IdentifiantClient,  COUNT(Identifiant) as NombreCommandes
+--		FROM EnteteCommande
+--		GROUP BY EnteteCommande.IdentifiantClient
+--	) as t0
+--);
+--GO
+
+--CREATE OR ALTER PROC ouiNon
+--AS 
+--SELECT DISTINCT Nom, Prenom,
+--CASE WHEN EnteteCommande.Identifiant IS NULL THEN 'Non' ELSE 'Oui' END
+--FROM Client LEFT JOIN EnteteCommande ON Client.Identifiant = EnteteCommande.IdentifiantClient;
+--GO
+
+--CREATE OR ALTER PROC achatApresDate
+--@date DATE
+--AS
+--	SELECT Nom, Prenom FROM Client
+--WHERE Client.Identifiant NOT IN (
+--	SELECT EnteteCommande.IdentifiantClient FROM EnteteCommande WHERE [Date] > @date
+--);
+--GO
+
+--CREATE OR ALTER PROC betweenDate
+--@date1 int,
+--@date2 int
+--AS
+--SELECT * FROM Client
+--WHERE Client.Identifiant NOT IN (
+--	SELECT DISTINCT Client.Identifiant
+--	FROM CLIENT INNER JOIN EnteteCommande ON Client.Identifiant = EnteteCommande.IdentifiantClient
+--	WHERE YEAR(Date) = @date1
+--) AND Client.Identifiant IN (
+--	SELECT DISTINCT Client.Identifiant
+--	FROM CLIENT INNER JOIN EnteteCommande ON Client.Identifiant = EnteteCommande.IdentifiantClient
+--	WHERE YEAR(Date) = @date2
+--)
+--GO
+
+--CREATE OR ALTER PROC plusMontant
+--@prix int
+--AS
+--SELECT 
+--	IdentifiantClient, Client.Nom, SUM(LigneCommande.PrixTotal) AS Depenses
+--FROM LigneCommande
+--	INNER JOIN EnteteCommande ON LigneCommande.IdentifiantEntete = EnteteCommande.Identifiant
+--	INNER JOIN Client ON Client.Identifiant = EnteteCommande.IdentifiantClient
+--GROUP BY IdentifiantClient, Client.Nom
+--HAVING SUM(LigneCommande.PrixTotal) > @prix
+--GO
+
+--CREATE OR ALTER PROC nbLigneCde
+--@id INT,
+--@nb INT OUTPUT
+--AS
+--SELECT @nb = COUNT(LigneCommande.IdentifiantEntete)
+--FROM LigneCommande INNER JOIN EnteteCommande ON LigneCommande.IdentifiantEntete = EnteteCommande.Identifiant
+--WHERE EnteteCommande.Identifiant = @id
+--GROUP BY IdentifiantEntete;
+--GO
