@@ -79,6 +79,10 @@ public class Panier {
 			recalculer() ;
 		}
 	}
+
+	public void supprimerAllLigne() {
+		this.lignesPanier.clear();
+	}
 	public boolean equals(Object o) {
 		boolean retour = false ;
 		if (!(o instanceof Panier))
