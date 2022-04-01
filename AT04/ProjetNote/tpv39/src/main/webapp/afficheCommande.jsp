@@ -118,7 +118,7 @@
                 />
             </div>
             <div class="rightside">
-                <form action="./verifCommande.jsp">
+                <form action="./verifCommande.jsp" method="post">
                     <h1>Confirmation</h1>
                     <h2>Information de paiement</h2>
                     <p>Nom du porteur de la carte</p>

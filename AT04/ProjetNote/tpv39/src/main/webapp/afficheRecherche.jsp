@@ -7,6 +7,7 @@
 <%@ page import="commerce.catalogue.domaine.modele.Piste" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Objects" %>
 <%
     if (session.getAttribute("panier") == null) {
         response.sendRedirect("./index.jsp");
@@ -46,6 +47,14 @@
         %>
     language = "javascript";
     alert("Un article a été ajouté à votre panier");
+    <%
+    }
+    %>
+    <%
+    if(request.getParameter("message") != null) {
+        %>
+    language = "javascript";
+    alert("Votre commande a bien été effectuée, au plaisir de vous revoir parmis nous ! :)");
     <%
     }
     %>
